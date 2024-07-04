@@ -1,0 +1,8 @@
+Here are some descriptions of agent observations:
+{desc}
+
+Please improve the goal list based on given observations and previous generated goals. 
+
+Use unordered list to show the goals like:
+- ...
+- ...

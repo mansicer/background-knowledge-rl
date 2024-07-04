@@ -1,0 +1,68 @@
+Here is a description about BabyAI tasks from the Minigrid environment.
+
+### Observations
+- **Grid Size**: The environment is a grid of varying sizes (e.g., 15x15 or 20x20).
+- **Objects and Colors**: Objects such as balls, boxes, and keys are placed in the environment. These objects come in various colors like red, green, blue, and purple.
+- **Distractors**: A specified number of distractor objects are added to the environment. These objects do not necessarily have unique characteristics.
+- **Mission Generation**: A task or mission is generated for the agent. The mission might be to go to a specific colored object (e.g., "go to the red ball").
+
+### Observation Space
+The observation is encoded as a 3 dimensional tuple: `(OBJECT_IDX, COLOR_IDX, STATE)`. 
+    - `OBJECT_TO_IDX` and `COLOR_TO_IDX` can be found below
+    - `STATE` refers to the door state with 0=open, 1=closed and 2=locked (which is only possible if the object type is the door).
+
+The input shape of the observation will be `(3, 7, 7)` where `7` is the sight range. You can only see objects in front of you. The agent is located at index (3, 6) with the front observation. For example, the object at index (3, 5) is the object in front of the agent and `obs[0, 3, 5]` refers to the object type in front of the agent. 
+
+### Action Space 
+There are three actions useful for the agent to navigate the environment: turn left, turn right, and move forward. The action space is discrete. Not all actions are required to complete one task. For example, the agent does not need to pick up or drop an object for goto tasks. 
+
+### Task Goal
+- **Primary Goal**: The main goal of the agent is to go to specified positions or interact with specified objects. For instance, if the mission is “go to the red ball,” the agent must navigate to a red ball's neighborhood. 
+- **Environment Understanding**: The agent must understand its surroundings, identify the target object among distractors, and navigate effectively to the specified object.
+- **Handling Distractors**: Successfully ignoring or navigating around distractor objects is crucial for completing the mission.
+
+We will use the following snippet in the code, which may help you get indecies of different constants. This snippet will be automatically appended to above code, so you do NOT need to generate it.
+
+```python
+import numpy as np
+
+# Used to map colors to integers
+COLOR_TO_IDX = dict(red=0, green=1, blue=2, purple=3, yellow=4, grey=5)
+
+# Map of object type to integers
+OBJECT_TO_IDX = dict(unseen=0, empty=1, wall=2, floor=3, door=4, key=5, ball=6, box=7)
+
+# Map of state names to integers
+STATE_TO_IDX = dict(open=0, closed=1, locked=2)
+
+from enum import IntEnum
+
+class Actions(IntEnum):
+    # Turn left, turn right, move forward
+    left = 0
+    right = 1
+    forward = 2
+    # Pick up an object
+    pickup = 3
+    # Drop an object
+    drop = 4
+    # Toggle/activate an object
+    toggle = 5
+```
+
+Your reward function will use useful observations and actions sequences from the environment as inputs. The template is as follows. All input arrays are numpy arrays of fixed shapes. 
+```python
+def compute_reward(obs: np.ndarray, past_obs: np.ndarray, past_actions: np.ndarray) -> Tuple[float, Dict[str, float]]:
+    """
+    Parameters:
+    - `obs`: The current observation with shape `(3, 7, 7)`.
+    - `past_obs`: The past observation sequence with shape `(K, 3, 7, 7)`, where `K` is the sequence length of historical observations and `past_obs[-1]` is the last observation.
+    - `past_actions`: actions previously taken by the agent with shape `(K)`, where `past_actions[-1]` is the last executed action.
+    Returns:
+    - `reward`: The reward for the current observation.
+    - `info`: A dictionary that can store different reward portions in float values.
+    """
+    return 0.0, {}
+```
+
+Your task is to write the `compute_reward` function that can give agent a signal of background knowledge apart from specific tasks. Make sure every component of your rewards is based on your common sense and understanding about this environment. There is NO target or goal specified in the input, so do not write any spinnets related to the target.

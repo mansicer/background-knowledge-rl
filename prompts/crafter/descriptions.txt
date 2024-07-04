@@ -1,0 +1,48 @@
+Crafter is an open-world survival game designed for reinforcement learning research. It features procedurally generated 2D worlds with elements like forests, lakes, mountains, and caves. Players must forage for food and water, find shelter, defend against monsters, collect materials, and build tools. The game mechanics are inspired by Minecraft but simplified for research efficiency. Players are challenged with tasks such as crafting tools, building shelters, and surviving against environmental threats. The game assesses players' ability to generalize learning, explore deeply, and reason long-term. Crafter serves as a comprehensive benchmark to evaluate a wide range of agent capabilities within a single environment.
+
+All information helpful for the game:
+1. Collect resources such as wood, stone, and iron to craft tools and weapons.
+2. Build shelters to protect yourself from monsters at night.
+3. Use tools and weapons to defend yourself against monsters.
+4. Build bridges to cross lakes and rivers.
+5. Dig tunnels to surprise monsters and outsmart them.
+6. Plant saplings and defend them against monsters to ensure a steady food supply.
+7. Eat Cow to restore health.
+8. Collect Drink to restore thirst.
+9. Place a Plant to eat for health.
+10. Make a Wood Pickaxe to collect Stone.
+11. Make a Wood Sword to defeat Zombies.
+12. Make a Stone Pickaxe to collect Iron.
+13. Make a Stone Sword to defeat Skeletons.
+14. Place a Furnace to smelt Iron.
+15. Collect Coal to smelt Iron.
+16. Collect Iron to make an Iron Pickaxe and Sword.
+17. Make an Iron Pickaxe to collect Diamond.
+18. Make an Iron Sword to defeat Zombies and Skeletons.
+19. Collect Diamond to progress further.
+20. Unlock achievements to receive rewards.
+21. Wake Up to start the episode.
+
+All game objectives and their requirements:
+1. Collect Wood: No requirements
+2. Place Table: Requires Collect Wood
+3. Eat Cow: No requirements
+4. Collect Sampling: No requirements
+5. Collect Drink: No requirements
+6. Make Wood Pickaxe: Requires Place Table
+7. Make Wood Sword: Requires Place Table
+8. Place Plant: Requires Collect Sampling
+9. Defeat Zombie: No requirements
+10. Collect Stone: Requires Make Wood Pickaxe
+11. Place Stone: Requires Collect Stone
+12. Eat Plant: Requires Place Plant
+13. Defeat Skeleton: No requirements
+14. Make Stone Pickaxe: Requires Collect Stone
+15. Make Stone Sword: Requires Collect Stone
+16. Wake Up: No requirements
+17. Place Furnace: Requires Collect Stone
+18. Collect Coal: Requires Make Wood Pickaxe
+19. Collect Iron: Requires Make Stone Pickaxe
+20. Make Iron Pickaxe: Requires Place Furnace, Collect Coal, and Collect Iron
+21. Make Iron Sword: Requires Place Furnace, Collect Coal, and Collect Iron
+22. Collect Diamond: Requires Make Iron Pickaxe

@@ -1,0 +1,15 @@
+Write a reward function to compuate the reward that represents background knowledge of BabyAI tasks. You should wrap your reward function in a Markdown Python code block. The reward function signature is like:
+
+```python
+def compute_reward(obs: np.ndarray, past_obs: np.ndarray, past_actions: np.ndarray) -> Tuple[float, Dict[str, float]]:
+    """
+    Parameters:
+    - `obs`: The current observation with shape `(3, 7, 7)`.
+    - `past_obs`: The past observation sequence with shape `(K, 3, 7, 7)`, where `K` is the sequence length of historical observations and `past_obs[-1]` is the last observation.
+    - `past_actions`: actions previously taken by the agent with shape `(K)`, where `past_actions[-1]` is the last executed action.
+    Returns:
+    - `reward`: The reward for the current observation.
+    - `info`: A dictionary that can store different reward portions in float values.
+    """
+    return 0.0, {}
+```

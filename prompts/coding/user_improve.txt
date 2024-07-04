@@ -1,0 +1,6 @@
+Here are evaluations based on the given reward function.
+{examples_description}
+
+Please carefully analyze the feedback and provide a new, improved reward function that can better represent background knowledge based on given cases.
+
+You should (a) explain how the reward function can be improved based on provided examples, and (b) provide the new reward function in the correct format.

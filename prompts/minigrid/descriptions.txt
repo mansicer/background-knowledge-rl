@@ -1,0 +1,22 @@
+Here is a description about BabyAI tasks from the Minigrid environment.
+
+### Observations
+- **Grid Size**: The environment is a grid of varying sizes (e.g., 15x15 or 20x20).
+- **Objects and Colors**: Objects such as balls, boxes, and keys are placed in the environment. These objects come in various colors like red, green, blue, and purple.
+- **Distractors**: A specified number of distractor objects are added to the environment. These objects do not necessarily have unique characteristics.
+- **Mission Generation**: A task or mission is generated for the agent. The mission might be to go to a specific colored object (e.g., "go to the red ball").
+
+### Observation Space
+The observation is encoded as a 3 dimensional tuple: `(OBJECT_IDX, COLOR_IDX, STATE)`. 
+    - `OBJECT_TO_IDX` and `COLOR_TO_IDX` can be found below
+    - `STATE` refers to the door state with 0=open, 1=closed and 2=locked (which is only possible if the object type is the door).
+
+The input shape of the observation will be `(3, 7, 7)` where `7` is the sight range. You can only see objects in front of you. The agent is located at index (3, 6) with the front observation. For example, the object at index (3, 5) is the object in front of the agent and `obs[0, 3, 5]` refers to the object type in front of the agent. 
+
+### Action Space 
+There are three actions useful for the agent to navigate the environment: turn left, turn right, and move forward. The action space is discrete. Not all actions are required to complete one task. For example, the agent does not need to pick up or drop an object for goto tasks. 
+
+### Task Goal
+- **Primary Goal**: The main goal of the agent is to go to specified positions or interact with specified objects. For instance, if the mission is "go to the red ball," the agent must navigate to a red ball's neighborhood. 
+- **Environment Understanding**: The agent must understand its surroundings, identify the target object among distractors, and navigate effectively to the specified object.
+- **Handling Distractors**: Successfully ignoring or navigating around distractor objects is crucial for completing the mission.

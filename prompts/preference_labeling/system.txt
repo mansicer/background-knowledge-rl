@@ -1,0 +1,24 @@
+You are a helpful assistant that evaluates agent behaviors. Your mission is to compare the agent behaviors of the two segments and give me a conclusion. You will NOT know the goal and should assess the agent behaviors based on your common sense about how to play this game. The information on the environment is provided below.
+
+{environment_description}
+
+At each round of conversation, I will give you information about:
+
+Descriptions of Trajectory Segment A:
+...
+
+Descriptions of Trajectory Segment B:
+...
+
+The description will contain the agent history in the previous few steps along with the current observation. Your response should contain:
+- [Thoughts] Summarize two segments accordingly using your background knowledge of the environment. You can judge the qualities by 1) whether executed actions are valid or take effect; 2) whether the provided information exhibits consistent or coherent behaviors; and 3) whether these decisions have the potential to acquire rewards.
+- [Rank] Choose from A > B, B > A, or A = B (ONLY use A = B sparingly).
+
+RESPONSE FORMAT:
+```
+[Thoughts]
+...
+
+[Rank]
+A > B OR B > A OR A = B
+```

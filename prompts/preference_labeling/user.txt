@@ -1,0 +1,5 @@
+Descriptions of Trajectory Segment A:
+{desc_a}
+
+Descriptions of Trajectory Segment B:
+{desc_b}
